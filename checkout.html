@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison</title>
+  <link rel="icon" type="image/png" href="/asset/favicon.png">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/thin/style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="product.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="navbar-container"></div>
+  <p class="c-h">Checkout</p>
+  <div class="checkHead">
+    <div class="info">
+  <div class="form-wrapper">
+
+    <form id="cForm" class="form">
+        <h3>Contact</h3>
+
+<input type="text" name="email" placeholder="E-Mail Address">
+<h3>Shipping Address</h3>
+<input type="text" name="first_name" placeholder="First Name">
+<input type="text" name="last_name" placeholder="Last Name">
+<input type="text" name="address" placeholder="Address" class="full">
+<input type="text" name="city" placeholder="City">
+<input type="text" name="postalCode" placeholder="Postal Code">
+<input type="text" name="country" placeholder="Country" class="full">
+<h3>Payment</h3>
+<input type="tel" name="cardNumber" placeholder="Card Number" class="full">
+<input type="month" name="expiry">
+<input type="number" name="cvc" placeholder="CVC">
+<button class="place-order" type="submit">Place Order</button>
+
+</form>
+
+      </div>
+    </div>
+    <div class="summary-main">
+      <p class="summary">Order Summary</p>
+      <div class="product-row">
+        <div class="sum-img">
+          <img src="/asset/product-4-CZTDhILa.jpg">
+        </div>
+        <div class="sum-details">
+          <p class="sum-name">Cashmere Knit</p>
+          <div class="size-qty">
+            <p>Size: <span class="sum-size">L</span></p>
+            <p>Qty: <span class="sum-quantity">1</span></p>
+          </div>
+          <p class="sum-price">€245</p>
+        </div>
+      </div>
+      <div class="sum-total">
+        <p style="color: #78736D">Subtotal</p>
+        <p style=" font-family:Montserrat; font-weight: 400;">€245</p>
+      </div>
+      <div class="sum-ship">
+        <p style="color: #78736D">Shipping</p>
+        <p style=" font-family:Montserrat; font-weight: 400;">Free</p>
+      </div>
+      <div class="sum-subTotal">
+        <p style=" font-family:Montserrat;
+    font-size: 18px; font-weight: 400; color: black;">Total</p>
+        <p class="sum-subprice">€245</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderCheckoutItems();
+    });
+
+    function renderCheckoutItems() {
+      const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+      const summaryContainer = document.querySelector(".summary-main");
+
+      if (!summaryContainer) return;
+
+      if (cartItems.length === 0) {
+        summaryContainer.innerHTML = `
+      <p class="empty">Your cart is empty.</p>
+      <button class="return" onclick="window.location.href='index.html'">Return to Shop</button>
+    `;
+        return;
+      }
+
+      let itemsHTML = `<p class="summary">Order Summary</p>`;
+      let subtotal = 0;
+      let totalQuantity = 0;
+
+      cartItems.forEach(item => {
+        const priceNum = parseFloat(item.price.replace("€", ""));
+        subtotal += priceNum * item.quantity;
+        totalQuantity += item.quantity;
+
+        itemsHTML += `
+      <div class="product-row">
+        <div class="sum-img">
+          <img src="${item.imgSrc}">
+        </div>
+        <div class="sum-details">
+          <p class="sum-name">${item.name}</p>
+          <div class="size-qty">
+            <p>Size: <span class="sum-size">${item.size}</span></p>
+            <p>Qty: <span class="sum-quantity">${item.quantity}</span></p>
+          </div>
+          <p class="sum-price">€${(priceNum * item.quantity).toFixed(2)}</p>
+        </div>
+      </div>
+    `;
+      });
+
+      itemsHTML += `
+    <div class="sum-total">
+      <p style="color:#78736D">Subtotal (${totalQuantity} items)</p>
+      <p>€${subtotal.toFixed(2)}</p>
+    </div>
+
+    <div class="sum-ship">
+      <p style="color:#78736D">Shipping</p>
+      <p>Free</p>
+    </div>
+
+    <div class="sum-subTotal">
+      <p style="font-size:18px;">Total</p>
+      <p class="sum-subprice">€${subtotal.toFixed(2)}</p>
+    </div>
+  `;
+
+      summaryContainer.innerHTML = itemsHTML;
+    }
+  </script>
+</body>
+
+</html>

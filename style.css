@@ -1268,608 +1268,168 @@ html body #cart {
     }
 }
 
-/* Mobile - Main Breakpoint */
 @media (max-width: 600px) {
-    
-    /* ==========================================
-       NAVBAR FIXES
-       ========================================== */
-    .nav ul li {
-        display: none;
+
+    /* ===== GLOBAL FIX ===== */
+    * {
+        overflow-x: hidden;
     }
 
-    .hamburg {
-        display: flex;
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 100;
+    img {
+        width: 100%;
+        height: auto;
     }
 
+    /* ===== NAVBAR ===== */
     #nav-bar {
+        padding: 0 12px;
+        height: 55px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 15px;
-        position: relative;
     }
 
     .logo {
         position: static;
         transform: none;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
-    /* ==========================================
-       SIDE MENU FIXES
-       ========================================== */
-    .side-menu {
-        position: fixed;
-        top: 0;
-        left: -100%; /* Better hidden state */
-        width: 280px;
-        height: 100vh;
-        background: #f9f8f6;
-        z-index: 9999; /* Higher z-index */
-        padding: 25px;
-        transition: left 0.35s ease;
-        box-shadow: 2px 0 15px rgba(0,0,0,0.1);
-        overflow-y: auto; /* Scroll if needed */
-    }
-
-    .side-menu.active {
-        left: 0;
-        padding-top: 65px;
-    }
-
-    .side-head {
-        display: flex;
-        justify-content: flex-end;
-        margin-bottom: 30px;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-    }
-
-    .side-head i {
-        font-size: 24px;
-        cursor: pointer;
-        padding: 5px;
-    }
-
-    .side-nav {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 25px; /* Increased gap */
-        padding: 0;
-        margin-top: 20px;
-    }
-
-    .side-nav li {
-        font-family: "DM Sans", sans-serif;
-        font-size: 16px; /* Larger for touch */
-        letter-spacing: 1px;
-        color: #221f1c;
-        cursor: pointer;
-        opacity: 0.9;
-        padding: 10px 0; /* Better touch target */
-        border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .side-nav li:hover {
-        opacity: 1;
-        color: #000;
-    }
-
-    /* Overlay for side menu */
-    .side-menu-overlay {
+    .nav {
         display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.5);
-        z-index: 9998;
     }
 
-    .side-menu-overlay.active {
-        display: block;
+    .hamburg {
+        display: flex;
     }
 
-    /* ==========================================
-       HERO SECTION FIXES
-       ========================================== */
+    .search-cart {
+        gap: 10px;
+    }
+
+    /* ===== HERO ===== */
     .head {
-        height: auto;
-        min-height: 100vh;
-        margin-top: 0;
-        padding: 80px 0 40px; /* Added padding */
-    }
-
-    .subhead {
-        font-size: 32px; /* Slightly reduced */
-        letter-spacing: 1px;
-        line-height: 1.2;
-        margin-bottom: 15px;
-    }
-
-    .text p {
-        font-size: 14px; /* Increased for readability */
-        line-height: 1.5;
-        margin-bottom: 20px;
-    }
-
-    .text button {
-        padding: 12px 28px; /* Better touch target */
-        font-size: 12px;
-        width: auto;
-        min-width: 140px;
+        height: 85vh;
+        margin-top: 55px;
     }
 
     .text {
-        margin-top: 80px;
-        padding: 0 20px;
-        text-align: center; /* Center align on mobile */
+        margin-top: 100px;
+        padding: 0 15px;
     }
 
-    /* ==========================================
-       NEW ARRIVALS FIXES
-       ========================================== */
-    .new-arr {
-        padding: 40px 15px 30px;
+    .subhead {
+        font-size: 30px;
+        letter-spacing: 1px;
     }
 
-    .arrival {
-        font-size: 24px; /* Better size */
-        letter-spacing: 2px;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    /* ==========================================
-       CARDS GRID FIXES - IMPROVED
-       ========================================== */
+    /* ===== CARDS (FIXED PROPERLY) ===== */
     #cards {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
-        padding: 15px;
-        gap: 15px; /* Better gap */
-        max-width: 100%;
-        box-sizing: border-box;
+        grid-template-columns: 1fr;   /* 🔥 IMPORTANT */
+        padding: 20px 12px;
+        gap: 20px;
     }
 
     .card {
         width: 100%;
-        margin: 0;
-        background: #fff;
-        border-radius: 8px; /* Added for modern look */
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Subtle shadow */
     }
 
     .card img {
         width: 100%;
-        height: 200px; /* Fixed height for consistency */
-        object-fit: cover; /* Better image handling */
-        display: block;
-    }
-
-    .card .details {
-        padding: 12px;
+        height: 320px;   /* 🔥 consistent size */
+        object-fit: cover;
     }
 
     .name {
-        font-size: 14px; /* Better size */
-        font-weight: 500;
-        margin-bottom: 5px;
-        line-height: 1.3;
+        font-size: 1rem;
     }
 
     .price {
-        font-size: 13px;
-        font-weight: 600;
-        color: #221f1c;
+        font-size: 0.9rem;
     }
 
-    .para {
-        font-size: 11px;
-        color: #666;
-        margin-top: 5px;
-    }
-
-    /* ==========================================
-       VIEW ALL BUTTON FIXES
-       ========================================== */
-    .view {
-        height: auto;
-        padding: 30px 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .view button {
-        padding: 14px 40px;
-        font-size: 13px;
-        border: 1px solid #221f1c;
-        background: transparent;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .view button:hover {
-        background: #221f1c;
-        color: #fff;
-    }
-
-    /* ==========================================
-       NEWSLETTER/FOOTER FIXES
-       ========================================== */
-    .footerH {
-        height: auto;
-        padding: 50px 20px;
-        text-align: center;
-    }
-
-    .touch {
-        font-size: 1.8rem;
-        line-height: 2.2rem;
-        margin-bottom: 15px;
-    }
-
-    .p1 {
-        font-size: 14px;
-        max-width: 100%;
-        padding: 0 10px;
-        margin-bottom: 25px;
-        line-height: 1.5;
-    }
-
-    .subscribeBox {
+    /* ===== PRODUCT PAGE (MAIN FIX) ===== */
+    .main-product {
         flex-direction: column;
-        width: 100%;
-        max-width: 350px;
-        margin: 0 auto;
-        border: 1px solid #999;
-        border-radius: 4px;
-        overflow: hidden;
     }
 
-    .subscribeBox input {
-        width: 100%;
-        border: none;
-        border-bottom: 1px solid #ddd;
-        padding: 15px;
-        font-size: 14px;
-    }
-
-    .subscribeBox button {
-        padding: 15px 20px;
-        width: 100%;
-        border: none;
-        background: #221f1c;
-        color: #fff;
-        font-size: 13px;
-        cursor: pointer;
-    }
-
-    /* ==========================================
-       FOOTER FIXES
-       ========================================== */
-    .footer {
-        flex-direction: column;
-        height: auto;
-        padding: 25px 15px;
-        gap: 15px;
-        text-align: center;
-        background: #f9f8f6;
-    }
-
-    .footer ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        padding: 0;
-        list-style: none;
-    }
-
-    .footer ul li {
-        font-size: 13px;
-    }
-
-    .footer p {
-        font-size: 12px;
-        color: #666;
-        margin: 0;
-    }
-
-    /* ==========================================
-       CART SIDEBAR FIXES
-       ========================================== */
-    html body #cart {
-        width: 100%;
-        right: -100%;
-        max-width: 400px; /* Max width for larger phones */
-    }
-
-    html body #cart.active {
-        right: 0;
-    }
-
-    .cart-head {
-        padding: 20px;
-        border-bottom: 1px solid #eee;
-    }
-
-    .cart-content {
-        padding: 20px;
-        height: calc(100vh - 200px);
-        overflow-y: auto;
-    }
-
-    /* Cart overlay */
-    .cart-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.5);
-        z-index: 998;
-    }
-
-    .cart-overlay.active {
-        display: block;
-    }
-
-    /* ==========================================
-       PRODUCT PAGE FIXES - MAJOR IMPROVEMENTS
-       ========================================== */
-    .back-container {
-        height: 60px;
-        display: flex;
-        align-items: center;
-        padding: 0 15px;
-        background: #fff;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        border-bottom: 1px solid #eee;
-    }
-
-    .back-container i {
-        margin-left: 0;
-        font-size: 20px;
-        padding: 10px;
-        cursor: pointer;
-    }
-
-    /* Main product container */
     .p-container {
         flex-direction: column;
-        width: 100%;
-        padding: 0;
-        gap: 0;
     }
 
-    /* Product Image Section */
     .p-img {
         width: 100%;
         margin: 0;
-        padding: 0;
-        order: 1; /* Image first */
+        padding: 0 10px;
     }
 
     .p-img img {
-        width: 100%;
         height: auto;
-        max-height: 400px;
-        object-fit: cover;
-        display: block;
     }
 
-    /* Product Details Section */
-    .p-container > .p-details {
-        padding: 20px;
-        margin-right: 0;
-        order: 2; /* Details second */
+    .variant-images img {
+        width: 22%;
+    }
+
+    .p-detail {
         width: 100%;
-        box-sizing: border-box;
+        padding: 20px 15px;
     }
 
     .p-name {
-        font-size: 24px;
-        line-height: 1.2;
-        margin-bottom: 10px;
-        font-weight: 600;
+        font-size: 26px;
     }
 
     .p-price {
         font-size: 20px;
-        font-weight: 600;
-        margin-bottom: 15px;
-        color: #221f1c;
     }
 
-    .p-description {
-        font-size: 14px;
-        line-height: 1.6;
-        color: #555;
-        margin-bottom: 20px;
+    /* ===== BACK BUTTON ===== */
+    .back-container {
+        height: 60px;
+        margin-top: 55px;
     }
 
-    /* Size/Color selectors */
-    .p-options {
-        margin-bottom: 20px;
+    .back-container i {
+        margin-left: 10px;
     }
 
-    .p-options label {
-        display: block;
-        font-size: 13px;
-        margin-bottom: 8px;
-        font-weight: 500;
-    }
-
-    .p-options select,
-    .p-options input {
+    /* ===== CART ===== */
+    html body #cart {
         width: 100%;
-        padding: 12px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        font-size: 14px;
-        margin-bottom: 15px;
+        right: -100%;
     }
 
-    /* Add to cart button */
-    .p-details button,
-    .add-to-cart {
+    /* ===== FOOTER ===== */
+    .footer {
+        flex-direction: column;
+        padding: 20px 10px;
+        text-align: center;
+    }
+
+    /* ===== NEWSLETTER ===== */
+    .subscribeBox {
+        flex-direction: column;
+    }
+
+    .subscribeBox input,
+    .subscribeBox button {
         width: 100%;
-        padding: 16px;
-        font-size: 14px;
-        background: #221f1c;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: background 0.3s ease;
     }
 
-    .p-details button:hover,
-    .add-to-cart:hover {
-        background: #000;
-    }
-    .c-h {
-        padding: 20px 15px;
-        margin-top: 60px;
-        font-size: 22px;
-        font-weight: 600;
-        border-bottom: 1px solid #eee;
-    }
-
+    /* ===== CHECKOUT ===== */
     .checkHead {
         grid-template-columns: 1fr;
-        padding: 0 15px;
-        gap: 20px;
+        padding: 0 10px;
     }
 
     .form {
         grid-template-columns: 1fr;
-        padding: 20px 0;
-        gap: 15px;
-    }
-
-    .form-group {
-        margin-bottom: 15px;
-    }
-
-    .form-group label {
-        display: block;
-        font-size: 13px;
-        margin-bottom: 5px;
-        font-weight: 500;
-    }
-
-    .form-group input,
-    .form-group select {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        font-size: 14px;
-        box-sizing: border-box;
+        padding: 15px;
     }
 
     .summary-main {
         max-width: 100%;
-        padding: 20px 0;
-        background: #f9f8f6;
-        border-radius: 8px;
-        margin-top: 20px;
-    }
-
-    .summary-item {
-        display: flex;
-        justify-content: space-between;
-        padding: 10px 0;
-        border-bottom: 1px solid #eee;
-        font-size: 14px;
-    }
-
-    .summary-total {
-        display: flex;
-        justify-content: space-between;
-        padding: 15px 0;
-        font-size: 16px;
-        font-weight: 600;
-        border-top: 2px solid #221f1c;
-        margin-top: 10px;
-    }
-
-    .checkout-btn {
-        width: 100%;
-        padding: 16px;
-        background: #221f1c;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        font-size: 14px;
-        cursor: pointer;
-        margin-top: 20px;
-    }
-}
-
-@media (max-width: 380px) {   
-    #cards {
-        grid-template-columns: 1fr; /* Single column on very small phones */
-        gap: 12px;
-        padding: 10px;
-    }
-
-    .card img {
-        height: 220px; /* Slightly taller */
-    }
-
-    .subhead {
-        font-size: 26px;
-    }
-
-    .logo {
-        font-size: 1.1rem;
-    }
-
-    .p-name {
-        font-size: 22px;
-    }
-
-    .p-price {
-        font-size: 18px;
-    }
-
-    .side-menu {
-        width: 260px; /* Slightly narrower */
-    }
-
-    .text {
-        margin-top: 60px;
-    }
-
-    .text button {
-        padding: 10px 24px;
-        font-size: 11px;
-    }
-
-    .arrival {
-        font-size: 20px;
-    }
-
-    .touch {
-        font-size: 1.4rem;
     }
 }
 @media (min-width: 1024px){
